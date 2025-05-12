@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.seuprojeto</groupId>  <!-- Quem é você ou sua empresa -->
+    <artifactId>meu-projeto</artifactId> <!-- Nome único do seu projeto -->
+    <version>1.0-SNAPSHOT</version> <!-- Versão inicial, com -SNAPSHOT pois ainda está em desenvolvimento -->
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source> <!-- ou a versão Java que estiver usando -->
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.10.2</version>
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.junit.platform</groupId>
+        <artifactId>junit-platform-suite</artifactId>
+        <version>1.10.2</version>
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-java</artifactId>
+        <version>7.14.0</version>
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit-platform-engine</artifactId>
+        <version>7.14.0</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+
+
+    <build>
+        <plugins>
+            <!-- Plugin para compilar o código -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M7</version>
+                <configuration>
+                     <useModulePath>false</useModulePath>
+                </configuration>
+            </plugin>
+
+            <!-- Plugin para rodar a aplicação -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>App</mainClass> <!-- Aqui você coloca o nome completo da classe com o main -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+
+
